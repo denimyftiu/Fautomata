@@ -1,0 +1,26 @@
+{
+"alphabet":["a","b","c","epsilon"],
+"states":["A", "B", "C"],
+"endstate":["C"],
+"beginstate":["A"],
+"hops":{
+        "A":{
+            "a":["A"],
+            "b":[],
+            "c":[],
+            "epsilon":["A","B","C"]
+        },
+        "B":{
+            "a":[],
+            "b":["B"],
+            "c":[],
+            "epsilon":["C", "B"]
+        },
+        "C":{
+            "a":[],
+            "b":[],
+            "c":["C"],
+            "epsilon":["C"]
+        }
+    }
+}

@@ -7,7 +7,7 @@ def goes_with_epsilon(state_list):
     ret=[]
     for s in state_list:
         #join dhe jumps with epsilon
-        ret += hops[s]['epsilon'] 
+        ret.extend(hops[s]['epsilon'])
     #returns a list of where the state can go with epsilon
     return list(set(ret))
 
@@ -19,7 +19,7 @@ def epsilon_closure(state_list):
         #do that for every state in the given list
         for state in state_list:
             if character in hops[state].keys():
-                cr+=hops[state][character]
+                cr.extend(hops[state][character])
         cr = goes_with_epsilon(cr)
         ret.append(cr)
     #returns the epsilon closure of a list of states 
@@ -36,7 +36,11 @@ def find_endstates(state_list):
 
 if __name__=='__main__':
     #take the filename as argument
-    inp = sys.argv[1]
+    try:
+        inp = sys.argv[1]
+    except:
+        print('No File Input')
+        exit(1)
 
     with open(inp, 'rb')as jfile:
         data = json.load(jfile)
@@ -44,7 +48,7 @@ if __name__=='__main__':
     #we only need the hops dictionary for the algorithm
     hops = data['hops']
     #prepare the json for the nfa
-    nfa = {'alphabet': data['alphabet'][:-1],'states': data['states'],
+    nfa = {'alphabet':data['alphabet'][:-1],'states': data['states'],
             "endstate":data['endstate'], "beginstate":data['beginstate']}
     nfa_hops = {}
 
