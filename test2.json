@@ -1,0 +1,23 @@
+{
+    "alphabet":["0","1","epsilon"],
+    "states":["A", "B", "C"],
+    "endstate":["C"],
+    "beginstate":["A"],
+    "hops":{
+                "A":{
+                    "1":["A"],
+                    "0":["B","C"],
+                    "epsilon":["B","A"]
+                },
+                "B":{
+                    "0":[],
+                    "1":["B"],
+                    "epsilon":["C", "B"]
+                },
+                "C":{
+                    "1":["C"],
+                    "0":["C"],
+                    "epsilon":["C"]
+                }
+            }
+}
