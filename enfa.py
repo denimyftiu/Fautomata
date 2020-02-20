@@ -11,13 +11,13 @@ def goes_with_epsilon(state_list):
     #returns a list of where the state can go with epsilon
     return list(set(ret))
 
-def epsilon_closure(llist):
+def epsilon_closure(state_list):
     ret = []
     #where are we going with each character in the alphabet
     for character in data['alphabet'][:-1]:
         cr=[]
         #do that for every state in the given list
-        for state in llist:
+        for state in state_list:
             if character in hops[state].keys():
                 cr+=hops[state][character]
         cr = goes_with_epsilon(cr)
