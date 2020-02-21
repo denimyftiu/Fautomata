@@ -9,7 +9,7 @@ def union(state_list):
         cr=[]
         for state in state_list:
             cr.extend(hops[state][character])
-        ret.append(sorted(cr))
+        ret.append(sorted(set(cr)))
     return ret
 
 def find_final_states(seen):
@@ -49,12 +49,10 @@ if __name__=='__main__':
     dfa_hops = {}
 
     while len(stack) > 0:
-        print('before pop {}'.format(stack))
         newstates = union(stack[0])     
         update_stack(newstates, stack, seen)
         chars = {}
         el = stack.pop(0)
-        print('after pop {}'.format(stack))
         for i,character in enumerate(data['alphabet']):
             chars.update({character: ''.join(newstates[i])})
         dfa_hops.update({''.join(el):chars})
@@ -62,4 +60,4 @@ if __name__=='__main__':
     final_states = find_final_states(seen)
     dfa['endstate']=final_states
     dfa['hops']=dfa_hops
-    pprint(dfa)
+    pprint(dfa, depth=3)
