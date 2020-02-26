@@ -1,0 +1,11 @@
+{
+    "alphabet": ["a", "b", "epsilon"],
+    "beginstate": ["q0"],
+    "endstate": ["q2"],
+    "hops": {
+            "q0": {"a": [], "b": ["q0"], "epsilon":["q0","q1", "q2"]},
+            "q1": {"a": ["q1"], "b": [], "epsilon":["q1", "q2"]},
+            "q2": {"a": ["q1"], "b": ["q0"], "epsilon":["q2"]}
+            },
+    "states": ["q0", "q1", "q2"]
+}

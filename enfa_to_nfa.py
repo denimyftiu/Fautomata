@@ -38,7 +38,7 @@ if __name__=='__main__':
     #take the filename as argument
     try:
         inp = sys.argv[1]
-    except:
+    except Exception:
         print('No File Input')
         exit(1)
 
@@ -64,4 +64,4 @@ if __name__=='__main__':
     #print the nfa for later use
     nfa.update({"hops":nfa_hops})
     nfa['endstate'] = find_endstates(hops.keys())
-    pprint(nfa)
+    pprint(nfa, indent=4)

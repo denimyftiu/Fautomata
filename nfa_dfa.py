@@ -29,7 +29,7 @@ if __name__=='__main__':
     #take the filename as argument
     try:
         inp = sys.argv[1]
-    except:
+    except Exception:
         print('No File Input')
         exit(1)
 
@@ -60,4 +60,4 @@ if __name__=='__main__':
     final_states = find_final_states(seen)
     dfa['endstate']=final_states
     dfa['hops']=dfa_hops
-    pprint(dfa, depth=3)
+    pprint(dfa, indent=4)
